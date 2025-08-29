@@ -1,6 +1,7 @@
 # TasteBot 🍳
 
 **TasteBot** is a web application that generates recipes based on the ingredients you provide. It leverages the Hugging Face Mistral model via serverless functions on Netlify to provide recipe suggestions in real-time.
+
 🌐 **Live Demo:** [https://tastebot.netlify.app/](https://tastebot.netlify.app/)
 ---
 
