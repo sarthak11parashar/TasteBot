@@ -1,0 +1,240 @@
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, sans-serif;
+    line-height: 1.6;
+    background: #fafafa;
+    color: #222;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header > h1 {
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: inherit;
+}
+
+.cheflogo {
+    height: 8vh;
+    width: auto;
+}
+
+/* Main Section */
+main {
+    padding: 6vh 5vw;
+}
+
+/* Add Ingredient Form */
+.add-ingredient-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.add-ingredient-form > input {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 0.7rem 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    min-width: 180px;
+    max-width: 400px;
+    font-size: 1rem;
+    background: #fff;
+    color: #222;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+}
+
+.add-ingredient-form > input:focus {
+    outline: none;
+    border-color: #d17557;
+    box-shadow: 0 0 0 3px rgba(209, 117, 87, 0.2);
+}
+
+.add-ingredient-form > button {
+    border-radius: 8px;
+    border: none;
+    background: #141413;
+    color: #fafaf8;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.add-ingredient-form > button::before {
+    content: "+";
+    margin-right: 6px;
+}
+
+.add-ingredient-form > button:hover {
+    background: #2c2c2c;
+    transform: translateY(-2px);
+}
+
+/* Ingredients Section */
+#ingredients-heading {
+    margin: 1rem 0 0.5rem 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+ul.ingredients-list {
+    margin: 0 0 2rem 1rem;
+    padding-left: 1rem;
+}
+
+ul.ingredients-list > li {
+    color: #475467;
+    line-height: 1.8;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+/* Get Recipe Card */
+.get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    background: #f7f6f3;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.get-recipe-container h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.get-recipe-container p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.get-recipe-container button {
+    border: none;
+    border-radius: 8px;
+    background: #d17557;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    color: #fafaf8;
+    padding: 0.6rem 1rem;
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.get-recipe-container button:hover {
+    background: #bb5f45;
+    transform: translateY(-2px);
+}
+
+/* Suggested Recipe */
+.suggested-recipe-container {
+    color: inherit;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 2rem 1rem;
+    transition: color 0.3s;
+}
+
+.suggested-recipe-container ul li,
+.suggested-recipe-container ol li {
+    margin-bottom: 0.6rem;
+}
+
+/* ---------------- Dark Mode ---------------- */
+body.dark-mode {
+    background: #181818;
+    color: #f5f5f5;
+}
+
+body.dark-mode header {
+    background: #202020;
+}
+
+body.dark-mode .add-ingredient-form > input {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #f5f5f5;
+}
+
+body.dark-mode .add-ingredient-form > button {
+    background: #f5f5f5;
+    color: #181818;
+}
+
+body.dark-mode .add-ingredient-form > button:hover {
+    background: #e0e0e0;
+}
+
+body.dark-mode ul.ingredients-list > li {
+    color: #d1d5db;
+}
+
+body.dark-mode .get-recipe-container {
+    background: #2a2a2a;
+    color: #f5f5f5;
+}
+
+body.dark-mode .get-recipe-container p {
+    color: #a3a3a3;
+}
+
+body.dark-mode .get-recipe-container button {
+    background: #d17557;
+    color: #fff;
+}
+
+body.dark-mode .get-recipe-container button:hover {
+    background: #bb5f45;
+}
+
+
+@media (max-width: 480px) {
+  header > h1 {
+    font-size: 1.2rem;
+  }
+
+  .add-ingredient-form {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .get-recipe-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
