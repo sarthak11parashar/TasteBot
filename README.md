@@ -1,12 +1,23 @@
-# React + Vite
+# TasteBot 🍳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TasteBot** is a web application that generates recipes based on the ingredients you provide. It leverages the Hugging Face Mistral model via serverless functions on Netlify to provide recipe suggestions in real-time.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Features**
 
-## Expanding the ESLint configuration
+- Add multiple ingredients to get recipe suggestions.
+- Recipes are generated using AI (Hugging Face Mistral model).
+- Fully deployed on Netlify with serverless functions.
+- Secure API key management using environment variables.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## **Tech Stack**
+
+- **Frontend:** React 19 + Vite
+- **Serverless Functions:** Netlify Functions
+- **AI Model:** Hugging Face `mistralai/Mixtral-8x7B-Instruct-v0.1`
+- **Styling:** CSS
+- **Version Control:** Git + GitHub
+
