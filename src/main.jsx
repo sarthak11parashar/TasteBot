@@ -2,43 +2,54 @@ import React from "react"
 import IngredientsList from "./components/IngredientsList"
 import ClaudeRecipe from "./components/ClaudeRecipe"
 import { getRecipeFromMistral } from "./ai"
+import LoadingMessage from "./components/LoadingMessage"
 
 
-export default function Main(){
 
-    const [ ingredients, setIngredients ] = React.useState([])
+export default function Main() {
 
+    const [ingredients, setIngredients] = React.useState([])
     const [recipe, setRecipe] = React.useState("")
+    const [loading, setLoading] = React.useState(false)
 
-    async function getRecipe(){
+    async function getRecipe() {
+        setLoading(true)
+        setRecipe("")
         const recipeMarkdown = await getRecipeFromMistral(ingredients)
         setRecipe(recipeMarkdown)
-
+        setLoading(false)
     }
 
-
-    function addIngredients(formData){
+    function addIngredients(formData) {
         const newIngredient = formData.get("ingredient");
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
 
     return (
         <main>
-            <form action={addIngredients} className="add-ingredient-form"> 
+            <form action={addIngredients} className="add-ingredient-form">
                 <input
-                 type="text"
-                 placeholder="e.g. oregano" 
-                 name="ingredient"/>
+                    type="text"
+                    placeholder="e.g. oregano"
+                    name="ingredient" />
                 <button>Add ingredient</button>
             </form>
 
-            {ingredients.length > 0 && <IngredientsList 
-                                        ingredients={ingredients} 
-                                        getRecipe={getRecipe}
-                                        />}
-                                        
-            {recipe && <ClaudeRecipe recipe={recipe} /> }
-           
-        </main> 
+            {ingredients.length === 0 && (
+                <p className="initial-hint">
+                    👉 Add minimum 4 ingredients to get a recipe
+                </p>
+            )}
+
+            {ingredients.length > 0 && <IngredientsList
+                ingredients={ingredients}
+                getRecipe={getRecipe}
+            />}
+
+            {loading && <LoadingMessage />}
+
+            {!loading && recipe && <ClaudeRecipe recipe={recipe} />}
+
+        </main>
     )
 }
