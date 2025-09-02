@@ -37,7 +37,7 @@ export default function Main() {
 
             {ingredients.length === 0 && (
                 <p className="initial-hint">
-                    👉 Add minimum 4 ingredients to get a recipe
+                    Add minimum 4 ingredients to get a recipe
                 </p>
             )}
 
