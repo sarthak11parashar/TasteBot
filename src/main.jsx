@@ -3,8 +3,7 @@ import IngredientsList from "./components/IngredientsList"
 import ClaudeRecipe from "./components/ClaudeRecipe"
 import { getRecipeFromMistral } from "./ai"
 import LoadingMessage from "./components/LoadingMessage"
-
-
+import ResetButton from "./components/ResetButton"
 
 export default function Main() {
 
@@ -22,7 +21,13 @@ export default function Main() {
 
     function addIngredients(formData) {
         const newIngredient = formData.get("ingredient");
+        if (newIngredient.trim() === "") return;
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+    }
+
+    function resetAll() {
+        setIngredients([])
+        setRecipe("")
     }
 
     return (
@@ -48,7 +53,13 @@ export default function Main() {
 
             {loading && <LoadingMessage />}
 
-            {!loading && recipe && <ClaudeRecipe recipe={recipe} />}
+            {!loading && recipe && (
+                <>
+                    <ClaudeRecipe recipe={recipe} />
+                    <ResetButton onReset={resetAll} />
+                </>
+            )}
+
 
         </main>
     )
